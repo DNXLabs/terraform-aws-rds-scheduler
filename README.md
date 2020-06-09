@@ -4,6 +4,7 @@
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-rds-scheduler)](https://github.com/DNXLabs/terraform-aws-rds-scheduler/blob/master/LICENSE)
 
 <!--- BEGIN_TF_DOCS --->
+
 ## Requirements
 
 | Name | Version |
@@ -15,6 +16,7 @@
 | Name | Version |
 |------|---------|
 | aws | n/a |
+| random | n/a |
 
 ## Inputs
 
