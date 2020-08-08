@@ -1,6 +1,6 @@
 # terraform-aws-rds-scheduler
 
-terraform-aws-rds-scheduler is a module to create a schedule to shut down and start a Relational database service (RDS)
+terraform-aws-rds-scheduler is a module to create a schedule to shut down or start a Relational database service (RDS)
 
 This module requires:
  * Terraform Version >=0.12.20
