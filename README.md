@@ -3,6 +3,12 @@
 [![Lint Status](https://github.com/DNXLabs/terraform-aws-rds-scheduler/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-rds-scheduler/actions)
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-rds-scheduler)](https://github.com/DNXLabs/terraform-aws-rds-scheduler/blob/master/LICENSE)
 
+This is a module to create a schedule to shut down or start a Relational database service(RDS).
+
+The following resources will be created:
+ - AWS Cloudwatch event rule - Delivers a real-time stream of system events that shut down or start the RDS.
+ - Identity Access Management (IAM) that create a service role for Systems Manager Automation
+
 <!--- BEGIN_TF_DOCS --->
 
 ## Requirements
