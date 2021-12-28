@@ -37,10 +37,11 @@ Aurora DB clusters can't be started or stopped under certain conditions:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| aurora\_cluster | Is Aurora Cluster? | `bool` | `false` | no |
 | cron\_start | Cron expression to define when to trigger a start of the DB | `any` | n/a | yes |
 | cron\_stop | Cron expression to define when to trigger a stop of the DB | `any` | n/a | yes |
 | enable | n/a | `bool` | `true` | no |
-| identifier | RDS instance identifier for schedule | `any` | n/a | yes |
+| identifier | RDS instance or Aurora Cluster identifier for schedule | `any` | n/a | yes |
 
 ## Outputs
 
