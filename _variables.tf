@@ -3,7 +3,7 @@ variable "identifier" {
 }
 
 variable "aurora_cluster" {
-  default = false
+  default     = false
   description = "Is Aurora Cluster?"
 }
 
