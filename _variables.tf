@@ -1,5 +1,10 @@
 variable "identifier" {
-  description = "RDS instance identifier for schedule"
+  description = "RDS instance or Aurora Cluster identifier for schedule"
+}
+
+variable "aurora_cluster" {
+  default = false
+  description = "Is Aurora Cluster?"
 }
 
 variable "cron_stop" {

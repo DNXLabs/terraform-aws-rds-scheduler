@@ -77,7 +77,10 @@ resource "aws_iam_role_policy" "ssm_automation" {
       "Action": [
         "rds:StopDB*",
         "rds:StartDB*",
-        "rds:DescribeDBInstances"
+        "rds:DescribeDBInstances",
+        "rds:StartDBCluster",
+        "rds:StopDBCluster",
+        "rds:DescribeDBClusters"
       ],
       "Resource": [
         "*"
