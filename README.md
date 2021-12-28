@@ -3,11 +3,20 @@
 [![Lint Status](https://github.com/DNXLabs/terraform-aws-rds-scheduler/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-rds-scheduler/actions)
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-rds-scheduler)](https://github.com/DNXLabs/terraform-aws-rds-scheduler/blob/master/LICENSE)
 
-This is a module to create a schedule to shut down or start a Relational database service(RDS).
+This is a module to create a schedule to shut down or start a Relational database service (RDS).
 
 The following resources will be created:
  - AWS Cloudwatch event rule - Delivers a real-time stream of system events that shut down or start the RDS.
  - Identity Access Management (IAM) that create a service role for Systems Manager Automation
+
+Notes:
+Aurora DB clusters can't be started or stopped under certain conditions:
+- To start a cluster it must be in 'stopped' status.
+- To stop a cluster it must be in 'available' status.
+- You can't start or stop a cluster that's part of an Aurora global database.
+- You can't start or stop a cluster that uses the Aurora parallel query.
+- You can't start or stop an Aurora Serverless cluster.
+- You can't start or stop an Aurora multi-master cluster.
 
 <!--- BEGIN_TF_DOCS --->
 
