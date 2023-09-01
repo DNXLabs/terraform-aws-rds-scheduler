@@ -18,3 +18,7 @@ variable "cron_start" {
 variable "enable" {
   default = true
 }
+
+variable "schedule_timezone" {
+  description = "Timezone used in scheduling cronjob"
+}

@@ -1,10 +1,13 @@
-
 data "aws_iam_policy_document" "event" {
   count = var.enable ? 1 : 0
   statement {
     effect    = "Allow"
-    actions   = ["ssm:StartAutomationExecution"]
+    actions   = ["sts:AssumeRole"]
     resources = ["*"]
+    principals {
+      type = "Service"
+      identifiers = ["scheduler.amazonaws.com"]
+    }
   }
   statement {
     effect    = "Allow"
@@ -28,7 +31,7 @@ data "aws_iam_policy_document" "event_trust" {
 # Generate a random string to add it to the name of the Target Group
 resource "random_string" "iam_suffix" {
   length      = 12
-  number      = true
+  numeric      = true
   min_numeric = 12
 }
 
