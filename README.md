@@ -24,7 +24,7 @@ Aurora DB clusters can't be started or stopped under certain conditions:
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.0 |
+| terraform | >= 1.0.0 |
 
 ## Providers
 
