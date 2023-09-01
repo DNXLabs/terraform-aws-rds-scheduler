@@ -42,7 +42,7 @@ Aurora DB clusters can't be started or stopped under certain conditions:
 | cron\_stop | Cron expression to define when to trigger a stop of the DB | `any` | n/a | yes |
 | enable | n/a | `bool` | `true` | no |
 | identifier | RDS instance or Aurora Cluster identifier for schedule | `any` | n/a | yes |
-| schedule\_timezone | Timezone used in stop start scheduling cronjob | `any` | n/a | yes |
+| schedule\_timezone | Timezone used in scheduling cronjob | `any` | n/a | yes |
 
 ## Outputs
 
