@@ -1,10 +1,13 @@
-
 data "aws_iam_policy_document" "event" {
   count = var.enable ? 1 : 0
   statement {
     effect    = "Allow"
-    actions   = ["ssm:StartAutomationExecution"]
+    actions   = ["sts:AssumeRole"]
     resources = ["*"]
+    principals {
+      type        = "Service"
+      identifiers = ["scheduler.amazonaws.com"]
+    }
   }
   statement {
     effect    = "Allow"
