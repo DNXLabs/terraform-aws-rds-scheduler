@@ -28,6 +28,7 @@ resource "aws_iam_role" "event" {
       Statement = [
         {
           Effect : "Allow"
+          Resource: ["*"]
           Action : [
             "rds:StopDB*",
             "rds:StartDB*",
