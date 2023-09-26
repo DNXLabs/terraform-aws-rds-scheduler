@@ -14,16 +14,7 @@ resource "aws_scheduler_schedule" "rds_stop" {
   target {
     arn      = !var.aurora_cluster ? "arn:aws:scheduler:::aws-sdk:rds:stopDBInstance" : "arn:aws:scheduler:::aws-sdk:rds:stopDBCluster"
     role_arn = aws_iam_role.event[0].arn
-    input = !var.aurora_cluster ? jsonencode(
-      {
-        DbInstanceIdentifier : var.identifier,
-      }
-      ) : jsonencode(
-      {
-        DbClusterIdentifier : var.identifier,
-
-      }
-    )
+    input    = !var.aurora_cluster ? "{\n  \"DbInstanceIdentifier\": \"${var.identifier}\"\n}" : "{\n  \"DbClusterIdentifier\": \"${var.identifier}\"\n}"
   }
 }
 
@@ -43,18 +34,6 @@ resource "aws_scheduler_schedule" "rds_start" {
   target {
     arn      = !var.aurora_cluster ? "arn:aws:scheduler:::aws-sdk:rds:startDBInstance" : "arn:aws:scheduler:::aws-sdk:rds:startDBCluster"
     role_arn = aws_iam_role.event[0].arn
-    input = !var.aurora_cluster ? jsonencode(
-      {
-        DBInstanceId = [
-          var.identifier,
-        ]
-      }
-      ) : jsonencode(
-      {
-        DbClusterIdentifier = [
-          var.identifier,
-        ]
-      }
-    )
+    input    = !var.aurora_cluster ? "{\n  \"DbInstanceIdentifier\": \"${var.identifier}\"\n}" : "{\n  \"DbClusterIdentifier\": \"${var.identifier}\"\n}"
   }
 }
