@@ -16,15 +16,12 @@ resource "aws_scheduler_schedule" "rds_stop" {
     role_arn = aws_iam_role.event[0].arn
     input = !var.aurora_cluster ? jsonencode(
       {
-        DbInstanceIdentifier = [
-          var.identifier,
-        ]
+        DbInstanceIdentifier : var.identifier,
       }
       ) : jsonencode(
       {
-        DbClusterIdentifier = [
-          var.identifier,
-        ]
+        DbClusterIdentifier : var.identifier,
+
       }
     )
   }
