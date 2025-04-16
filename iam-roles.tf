@@ -20,27 +20,30 @@ resource "aws_iam_role" "event" {
       }
     ]
   })
+}
 
-  inline_policy {
-    name = "rds-scheduler-policy-${var.identifier}-${random_string.iam_suffix.result}"
-    policy = jsonencode({
-      Version = "2012-10-17"
-      Statement = [
-        {
-          Effect : "Allow"
-          Resource : ["*"]
-          Action : [
-            "rds:StopDB*",
-            "rds:StartDB*",
-            "rds:DescribeDBInstances",
-            "rds:StartDBCluster",
-            "rds:StopDBCluster",
-            "rds:DescribeDBClusters"
-          ]
-        }
-      ]
-    })
-  }
+resource "aws_iam_role_policy" "event_policy" {
+  count = var.enable ? 1 : 0
+  name  = "rds-scheduler-policy-${var.identifier}-${random_string.iam_suffix.result}"
+  role  = aws_iam_role.event[0].id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect : "Allow"
+        Resource : ["*"]
+        Action : [
+          "rds:StopDB*",
+          "rds:StartDB*",
+          "rds:DescribeDBInstances",
+          "rds:StartDBCluster",
+          "rds:StopDBCluster",
+          "rds:DescribeDBClusters"
+        ]
+      }
+    ]
+  })
 }
 
 
