@@ -22,3 +22,8 @@ variable "enable" {
 variable "schedule_timezone" {
   description = "Timezone used in scheduling cronjob"
 }
+
+variable "state" {
+  type = string
+  default = "ENABLED"
+}

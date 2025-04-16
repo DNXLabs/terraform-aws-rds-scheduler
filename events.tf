@@ -6,6 +6,7 @@ resource "aws_scheduler_schedule" "rds_stop" {
 
   schedule_expression          = "cron(${var.cron_stop})"
   schedule_expression_timezone = var.schedule_timezone
+  state                        = var.state
 
   flexible_time_window {
     mode = "OFF"
