@@ -24,6 +24,6 @@ variable "schedule_timezone" {
 }
 
 variable "state" {
-  type = string
+  type    = string
   default = "ENABLED"
 }
